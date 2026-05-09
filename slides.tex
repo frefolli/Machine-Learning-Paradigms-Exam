@@ -231,6 +231,26 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{The Simulator: UXsim}
+  UXSim \cite{seo2025joss} is a Free and Open-Source \textit{macroscopic} and \textit{mesoscopic} network traffic flow simulator.
+  It's tailored to simulate private-mobility simulations. It's a \textbf{"Lightweight"}, \textbf{Library-Based} and \textbf{Written in Python}.
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/uxsim-example.png}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures/uxsim-example-2.png}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
   \frametitle{The Agent Model}
 
   \begin{columns}
@@ -245,7 +265,7 @@
     \begin{column}{0.5\textwidth}
       \begin{figure}
         \centering
-        \includegraphics[width=1.00\textwidth]{figures/Milano-Agente.png}
+        \includegraphics[width=1.0\textwidth]{figures/Milano-Agente.png}
         \caption{4-Way Double-Lane Traffic Light Regulated Intersection}
       \end{figure}
     \end{column}
@@ -368,6 +388,7 @@ def Client(scenario):
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/models-training-stats.png}
+    \caption{Total Reward during Training over Time (Episodes)}
   \end{figure}
 \end{frame}
 
@@ -376,6 +397,7 @@ def Client(scenario):
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/models-evaluation-stats.png}
+    \caption{Average Total Reward during Evaluation over Time (Initial + Episodes)}
   \end{figure}
 \end{frame}
 
@@ -384,6 +406,7 @@ def Client(scenario):
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/federated-coordinator-catching-up.png}
+    \caption{Average Total Reward during Evaluation over Time (Initial + Episodes)}
   \end{figure}
 \end{frame}
 
@@ -392,6 +415,7 @@ def Client(scenario):
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/CTLA-10-is-best-60-is-worst.png}
+    \caption{Average Total Reward during Evaluation of Fixed-Cycle Agents (\textit{CTLA\_Ts} means $T$ seconds per phase)}
   \end{figure}
 \end{frame}
 
@@ -400,6 +424,7 @@ def Client(scenario):
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/FedRL-and-CRL-Learned-a-Better-Policy-then-CTLA.png}
+    \caption{Comparison of Average Total Reward obtained by Deep Q-Learning Models and Fixed-Cycle Agents during Evaluation}
   \end{figure}
 \end{frame}
 
@@ -408,17 +433,60 @@ def Client(scenario):
   \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/FedRL-and-CRL-Learned-a-Better-Policy-then-B_W_CTLA.png}
+    \caption{Comparison of Average Total Reward obtained by Deep Q-Learning Models and Fixed-Cycle Agents during Evaluation}
   \end{figure}
 \end{frame}
 
 \begin{frame}
+  \frametitle{Visualizing that Reward Difference}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=1.0\textwidth]{figures/gif-CTLA-10s.png}
+        \caption{Microscopic visualization of Fixed-Agent (10s per phase)}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=1.0\textwidth]{figures/gif-CTLA-60s.png}
+        \caption{Microscopic visualization of Fixed-Agent (60s per phase)}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Visualizing that Reward Difference}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=1.0\textwidth]{figures/gif-CLR.png}
+        \caption{Microscopic visualization of Centralized Learning Agent}
+      \end{figure}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=1.0\textwidth]{figures/gif-FedLR.png}
+        \caption{Microscopic visualization of Federated Learning Agent}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+  \centering
+  \Huge
+  Thank You
+%\cite{Refolli2025}
   \begin{figure}
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/patrick.png}
+    %\includegraphics[width=0.9\textwidth]{figures/patrick.png}
+    \includegraphics[width=0.9\textwidth]{figures/github-repo.png}
   \end{figure}
-\centering
-\Huge
-Thank You \cite{Refolli2025}
 \end{frame}
 
 \begin{frame}[allowframebreaks, noframenumbering]
