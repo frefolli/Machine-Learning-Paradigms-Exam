@@ -1,0 +1,14 @@
+*.idx
+*-blx.bib
+*.aux
+*.log
+*.run.xml
+*.toc
+*.ilg
+*.ind
+*.bbl
+*.blg
+*.out
+*.nav
+*.snm
+*.vrb
