@@ -1,77 +1,90 @@
+---
+author:
+- Francesco Refolli
+bibliography:
+- quotes.bib
+nocite: "[@*]"
+subtitle: "*Machine Learning Paradigms* Exam"
+title: Transfer Learning through Federated Reinforcement Learning
+---
+
+::: frame
 ### The Multi-Agent Simulation Setting
 
+::: columns
+::: column
 0.5
 
-<figure>
-<img src="figures/Milano-Circonvalla.png" style="width:100.0%" />
-<figcaption>Ring-Road of a Metropolitan City <span class="citation"
-data-cites="CorSera1973"></span></figcaption>
-</figure>
+![Ring-Road of a Metropolitan City
+[@CorSera1973]](figures/Milano-Circonvalla.png){width="100%"}
+:::
 
+::: column
 0.5
 
-<figure>
-<img src="figures/Milano-Intersezione.png" style="width:100.0%" />
-<figcaption>4-Way Double-Lane Traffic Light Regulated Intersection <span
-class="citation" data-cites="TuttoCitta2026"></span></figcaption>
-</figure>
+![4-Way Double-Lane Traffic Light Regulated Intersection
+[@TuttoCitta2026]](figures/Milano-Intersezione.png){width="100%"}
+:::
+:::
+:::
 
+::: frame
 ### The Multi-Agent Reinforcement Learning Story So Far
 
-<figure>
-<img src="figures/curriculum-vs-monolithic.png" style="width:65.0%" />
-<figcaption>Comparison of Approaches for Rearching Demand Coverage<span
-class="citation" data-cites="Refolli2025"></span></figcaption>
-</figure>
+![Comparison of Approaches for Rearching Demand
+Coverage[@Refolli2025]](figures/curriculum-vs-monolithic.png){width="65%"}
+:::
 
+::: frame
 ### The Multi-Agent Reinforcement Learning Story So Far
 
-<figure>
-<img src="figures/shared-observation-learning.png"
-style="width:75.0%" />
-<figcaption>Agents sharing Observation <span class="citation"
-data-cites="Refolli2025"></span></figcaption>
-</figure>
+![Agents sharing Observation
+[@Refolli2025]](figures/shared-observation-learning.png){width="75%"}
 
-<figure>
-<img src="figures/shared-reward-learning.png" style="width:75.0%" />
-<figcaption>Agents sharing Rewards <span class="citation"
-data-cites="Refolli2025"></span></figcaption>
-</figure>
+![Agents sharing Rewards
+[@Refolli2025]](figures/shared-reward-learning.png){width="75%"}
+:::
 
+::: frame
 ### Centralized Reinforcement Learning
 
-<figure>
-<img src="figures/centralized-learning.png" style="width:75.0%" />
-</figure>
+![image](figures/centralized-learning.png){width="75%"}
+:::
 
+::: frame
 ### Federated Reinforcement Learning
 
-<figure>
-<img src="figures/federated-learning.png" style="width:75.0%" />
-</figure>
+![image](figures/federated-learning.png){width="75%"}
+:::
 
+::: frame
 ### The Simulator: UXsim
 
-UXSim is a Free and Open-Source *macroscopic* and *mesoscopic* network
-traffic flow simulator. It’s tailored to simulate private-mobility
-simulations. It’s a **"Lightweight"**, **Library-Based** and **Written
-in Python**.
+UXSim [@seo2025joss] is a Free and Open-Source *macroscopic* and
+*mesoscopic* network traffic flow simulator. It's tailored to simulate
+private-mobility simulations. It's a **\"Lightweight\"**,
+**Library-Based** and **Written in Python**.
 
+::: columns
+::: column
 0.5
 
-<figure>
-<img src="figures/uxsim-example.png" style="width:80.0%" />
-</figure>
+![image](figures/uxsim-example.png){width="80%"}
+:::
 
+::: column
 0.5
 
-<figure>
-<img src="figures/uxsim-example-2.png" style="width:80.0%" />
-</figure>
+![image](figures/uxsim-example-2.png){width="80%"}
+:::
+:::
+:::
 
+::: frame
 ### The Agent Model
 
+::: columns
+::: column
 0.5
 
 -   The Agent can change Traffic Light Phase every 10 seconds
@@ -82,214 +95,243 @@ in Python**.
 -   The Agent can see the density of vehicles in each one of the roads
     (input/output)
 
--   The Agent is rewarded based on vehicle queues’ length, specifically
+-   The Agent is rewarded based on vehicle queues' length, specifically
     on the amount vehicles en/dequeuing
+:::
 
+::: column
 0.5
 
-<figure>
-<img src="figures/Milano-Agente.png" style="width:100.0%" />
-<figcaption>4-Way Double-Lane Traffic Light Regulated
-Intersection</figcaption>
-</figure>
+![4-Way Double-Lane Traffic Light Regulated
+Intersection](figures/Milano-Agente.png){width="100%"}
+:::
+:::
+:::
 
+::: frame
 ### The Traffic Model
 
+::: columns
+::: column
 0.5
 
-<figure>
-<img src="figures/Milano-Circonvalla.png" style="width:100.0%" />
-<figcaption>Ring-Road of a Metropolitan City <span class="citation"
-data-cites="CorSera1973"></span></figcaption>
-</figure>
+![Ring-Road of a Metropolitan City
+[@CorSera1973]](figures/Milano-Circonvalla.png){width="100%"}
+:::
 
+::: column
 0.5
 
 -   Two-Lanes per Road Link
 
--   Road Length is 1000 m = 1 km
+-   Road Length is $1000$ m $=$ $1$ km
 
--   Free Flow Speed is 20 m/s ≈ 72 km/h
+-   Free Flow Speed is $20$ m/s $\approx$ $72$ km/h
+    [@nagatani2002physics]
 
--   Traffic Jam Density is set to *ρ* = 0.2 *a**p**p**r**o**x* 40
-    veh/2lanes/1km
+-   Traffic Jam Density is set to $\rho = 0.2$ $approx$ $40$
+    veh/2lanes/1km [@nagatani2002physics]
 
--   No Platoons allowed, as in the Real-World (at least for now ...)
+-   No Platoons allowed, as in the Real-World (at least for now \...)
 
 -   No simulated Pedestrian Crossing, nor Public Transit (of any kind)
+:::
+:::
+:::
 
+::: frame
 ### The Demand Model / Training Scenarios
 
+::: columns
+::: column
 0.5
 
-<figure>
-<img src="figures/Milano-Circonvalla.png" style="width:100.0%" />
-<figcaption>Ring-Road of a Metropolitan City <span class="citation"
-data-cites="CorSera1973"></span></figcaption>
-</figure>
+![Ring-Road of a Metropolitan City
+[@CorSera1973]](figures/Milano-Circonvalla.png){width="100%"}
+:::
 
+::: column
 0.5
 
--   All Mid  
+-   All Mid\
     (**Piazzale Fratelli Zavattari**)
 
--   Peak East to West  
+-   Peak East to West\
     (**Piazzale Loreto**)
 
--   Peak West to East  
+-   Peak West to East\
     (**Piazza Simone Bolivar**)
 
--   Peak North to South  
+-   Peak North to South\
     (**Piazza Firenze**)
 
--   Peak South to North  
+-   Peak South to North\
     (**Piazzale Lodi**)
+:::
+:::
+:::
 
+::: frame
 ### The Demand Model / Evaluation Scenarios
 
+::: columns
+::: column
 0.5
 
-<figure>
-<img src="figures/Milano-Circonvalla.png" style="width:100.0%" />
-<figcaption>Ring-Road of a Metropolitan City <span class="citation"
-data-cites="CorSera1973"></span></figcaption>
-</figure>
+![Ring-Road of a Metropolitan City
+[@CorSera1973]](figures/Milano-Circonvalla.png){width="100%"}
+:::
 
+::: column
 0.5
 
 -   Training Scenarios
 
--   + 5 ×  Random Demand
+-   $+ \; 5 \; \times \;$ Random Demand
 
 -   Each entry of the four (EW, WE, NS, SN) is random
 
--   Demand is in range \[0.3, 0.8\]
+-   Demand is in range $[0.3, 0.8]$
 
--   The demand’s percentage describes the amount of vehicles per unit of
+-   The demand's percentage describes the amount of vehicles per unit of
     capacity
+:::
+:::
+:::
 
+::: frame
 ### The FedAvg Algorithm
 
+::: columns
+::: column
 0.5
 
-    def Coordinator():
-      $\theta$ = Policy.New()
-      $\forall c \in C \; | \; SendToClient(c, \theta)$
-      for $e \in \{1,..,E\}$:
-        $\{(\theta_1, w_1) ...\} = \{ GetFromClient(c) \; | \; \forall c \in C\}$
-        $\{\alpha_1 ...\} = \{\frac {w_1} {\Sigma w_i} ...\}$
-        $\theta = \Sigma \alpha_i \theta_i$
-        $\forall c \in C \; | \; SendToClient(c, \theta)$
-      return $\theta$
+``` {style="pythonstyle" caption="FedAvg Algorithm" mathescape=""}
+def Coordinator():
+  $\theta$ = Policy.New()
+  $\forall c \in C \; | \; SendToClient(c, \theta)$
+  for $e \in \{1,..,E\}$:
+    $\{(\theta_1, w_1) ...\} = \{ GetFromClient(c) \; | \; \forall c \in C\}$
+    $\{\alpha_1 ...\} = \{\frac {w_1} {\Sigma w_i} ...\}$
+    $\theta = \Sigma \alpha_i \theta_i$
+    $\forall c \in C \; | \; SendToClient(c, \theta)$
+  return $\theta$
 
-    def Client(scenario):
-      for $e \in \{1,..,E\}$:
-        $\theta = GetFromCoordinator()$
-        $\theta', w$ = Simulation($\theta$, scenario)
-        $SendToCoordinator(\theta')$
+def Client(scenario):
+  for $e \in \{1,..,E\}$:
+    $\theta = GetFromCoordinator()$
+    $\theta', w$ = Simulation($\theta$, scenario)
+    $SendToCoordinator(\theta')$
+```
+:::
 
+::: column
 0.5
 
 -   Knowledge is weighted on the complexity of the scenario of a client
 
--   ... which is equal to the demand that the client has to deal with
+-   \... which is equal to the demand that the client has to deal with
 
 -   Due to resource constrains, only 5 Peers were used, with no client
     sampling
 
--   The duration of a simulation is 3600*s* = 1*h**r* = 360 steps.
+-   The duration of a simulation is $3600s \; = \; 1hr \; = \; 360$
+    steps.
+:::
+:::
+:::
 
+::: frame
 ### Results / Training
 
-<figure>
-<img src="figures/models-training-stats.png" />
-<figcaption>Total Reward during Training over Time
-(Episodes)</figcaption>
-</figure>
+![Total Reward during Training over Time
+(Episodes)](figures/models-training-stats.png){width="\\textwidth"}
+:::
 
+::: frame
 ### Results / Evaluation
 
-<figure>
-<img src="figures/models-evaluation-stats.png" />
-<figcaption>Average Total Reward during Evaluation over Time (Initial +
-Episodes)</figcaption>
-</figure>
+![Average Total Reward during Evaluation over Time (Initial +
+Episodes)](figures/models-evaluation-stats.png){width="\\textwidth"}
+:::
 
+::: frame
 ### Results / The Federated Coordinator is Catching Up!
 
-<figure>
-<img src="figures/federated-coordinator-catching-up.png" />
-<figcaption>Average Total Reward during Evaluation over Time (Initial +
-Episodes)</figcaption>
-</figure>
+![Average Total Reward during Evaluation over Time (Initial +
+Episodes)](figures/federated-coordinator-catching-up.png){width="\\textwidth"}
+:::
 
+::: frame
 ### Comparisons / Fixed-Cycle Agents
 
-<figure>
-<img src="figures/CTLA-10-is-best-60-is-worst.png" />
-<figcaption>Average Total Reward during Evaluation of Fixed-Cycle Agents
-(<em>CTLA_Ts</em> means <span class="math inline"><em>T</em></span>
-seconds per phase)</figcaption>
-</figure>
+![Average Total Reward during Evaluation of Fixed-Cycle Agents
+(*CTLA_Ts* means $T$ seconds per
+phase)](figures/CTLA-10-is-best-60-is-worst.png){width="\\textwidth"}
+:::
 
+::: frame
 ### Comparisons / Is Deep Q-Learning Worth the Effort?
 
-<figure>
-<img
-src="figures/FedRL-and-CRL-Learned-a-Better-Policy-then-CTLA.png" />
-<figcaption>Comparison of Average Total Reward obtained by Deep
-Q-Learning Models and Fixed-Cycle Agents during Evaluation</figcaption>
-</figure>
+![Comparison of Average Total Reward obtained by Deep Q-Learning Models
+and Fixed-Cycle Agents during
+Evaluation](figures/FedRL-and-CRL-Learned-a-Better-Policy-then-CTLA.png){width="\\textwidth"}
+:::
 
+::: frame
 ### Comparisons / Is Deep Q-Learning Worth the Effort?
 
-<figure>
-<img
-src="figures/FedRL-and-CRL-Learned-a-Better-Policy-then-B_W_CTLA.png" />
-<figcaption>Comparison of Average Total Reward obtained by Deep
-Q-Learning Models and Fixed-Cycle Agents during Evaluation</figcaption>
-</figure>
+![Comparison of Average Total Reward obtained by Deep Q-Learning Models
+and Fixed-Cycle Agents during
+Evaluation](figures/FedRL-and-CRL-Learned-a-Better-Policy-then-B_W_CTLA.png){width="\\textwidth"}
+:::
 
+::: frame
 ### Visualizing that Reward Difference
 
+::: columns
+::: column
 0.5
 
-<figure>
-<img src="figures/gif-CTLA-10s.png" style="width:100.0%" />
-<figcaption>Microscopic visualization of Fixed-Agent (10s per
-phase)</figcaption>
-</figure>
+![Microscopic visualization of Fixed-Agent (10s per
+phase)](figures/gif-CTLA-10s.png){width="100%"}
+:::
 
+::: column
 0.5
 
-<figure>
-<img src="figures/gif-CTLA-60s.png" style="width:100.0%" />
-<figcaption>Microscopic visualization of Fixed-Agent (60s per
-phase)</figcaption>
-</figure>
+![Microscopic visualization of Fixed-Agent (60s per
+phase)](figures/gif-CTLA-60s.png){width="100%"}
+:::
+:::
+:::
 
+::: frame
 ### Visualizing that Reward Difference
 
+::: columns
+::: column
 0.5
 
-<figure>
-<img src="figures/gif-CLR.png" style="width:100.0%" />
-<figcaption>Microscopic visualization of Centralized Learning
-Agent</figcaption>
-</figure>
+![Microscopic visualization of Centralized Learning
+Agent](figures/gif-CLR.png){width="100%"}
+:::
 
+::: column
 0.5
 
-<figure>
-<img src="figures/gif-FedLR.png" style="width:100.0%" />
-<figcaption>Microscopic visualization of Federated Learning
-Agent</figcaption>
-</figure>
+![Microscopic visualization of Federated Learning
+Agent](figures/gif-FedLR.png){width="100%"}
+:::
+:::
+:::
 
+::: frame
 Thank You
 
-<figure>
-<img src="figures/github-repo.png" style="width:90.0%" />
-</figure>
+![image](figures/github-repo.png){width="90%"}
+:::
 
+::: frame
 ### Bibliography
+:::
